@@ -1,16 +1,31 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html>
- <head><script src="script.js"></script>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <title>Пример веб-страницы</title>
- </head>
- <body>
-  <div style="text-align: center;">
-<textarea id="text" cols="35" rows="8" style="width: 600px; height: 150px;
-    color: #0C3A45; border: 1px solid #CCCCCC; background: #F2F2F2;"></textarea>
-<br>
-<input type="button" value="В транслит" onclick="send()">
-</div>
-  
- </body>
+<head>
+<title>Пример</title>
+</head>
+<body>
+
+         <?php
+  // функция превода текста с кириллицы в траскрипт
+  function encodestring($st)
+  {
+    // Сначала заменяем "односимвольные" фонемы.
+    $st=strtr($st,"абвгдеёзийклмнопрстуфхъыэ_",
+    "abvgdeeziyklmnoprstufh'iei");
+    $st=strtr($st,"АБВГДЕЁЗИЙКЛМНОПРСТУФХЪЫЭ_",
+    "ABVGDEEZIYKLMNOPRSTUFH'IEI");
+    // Затем - "многосимвольные".
+    $st=strtr($st, 
+                    array(
+                        "ж"=>"zh", "ц"=>"ts", "ч"=>"ch", "ш"=>"sh", 
+                        "щ"=>"shch","ь"=>"", "ю"=>"yu", "я"=>"ya",
+                        "Ж"=>"ZH", "Ц"=>"TS", "Ч"=>"CH", "Ш"=>"SH", 
+                        "Щ"=>"SHCH","Ь"=>"", "Ю"=>"YU", "Я"=>"YA",
+                        "ї"=>"i", "Ї"=>"Yi", "є"=>"ie", "Є"=>"Ye"
+                        )
+             );
+    // Возвращаем результат.
+    return $st;
+  }
+?>
+     </body>
 </html>

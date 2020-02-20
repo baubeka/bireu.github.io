@@ -1,4 +1,4 @@
- <script type='text/javascript'>
+<script type="text/javascript">
 function send(){
 var text = document.getElementById('text').value;
 var transl = new Array();
@@ -41,6 +41,6 @@ var transl = new Array();
         if(transl[text[i]] != undefined) { result += transl[text[i]]; }
         else { result += text[i]; }
     }
-    document.getElementById('text').value = result;
+    document.getElementById('text_2').value = result;
 }
 </script>

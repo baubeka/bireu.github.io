@@ -44,13 +44,14 @@ var transl = new Array();
         if(transl[text[i]] != undefined) { result += transl[text[i]]; }
         else { result += text[i]; }
     }
-    document.getElementById('text').value = result; на document.getElementById('text_2').value = result;
+    document.getElementById('text').value = result;
 }
 </script>
     </head>
 
     <body>
-         
+         <textarea id="text" cols="35" rows="8" onKeyUp="send()"></textarea>
+<textarea id="text_2" cols="35" rows="8"></textarea>
     </body>
 
 </html>
